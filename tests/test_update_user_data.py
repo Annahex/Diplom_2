@@ -8,7 +8,7 @@ import pytest
 MESSAGE_USER_UNAUTHORIZED = "You should be authorised"
 
 
-class TestCreateUser:
+class TestUpdateUserData:
 
     fake = Faker("ru_RU")
 
@@ -20,7 +20,7 @@ class TestCreateUser:
 
     @allure.title('Проверка изменения данных пользователя с авторизацией')
     @pytest.mark.parametrize('update_data', update_data)
-    def test_cant_create_user_without_any_field(self, user, update_data):
+    def test_can_update_user_data(self, user, update_data):
         payload = {
             f"{update_data[0]}": update_data[1]
         }
@@ -34,7 +34,7 @@ class TestCreateUser:
 
     @allure.title('Проверка изменения данных пользователя без авторизации')
     @pytest.mark.parametrize('update_data', update_data)
-    def test_cant_create_user_without_any_field(self, user, update_data):
+    def test_cant_update_user_data(self, user, update_data):
         payload = {
             f"{update_data[0]}": update_data[1]
         }
