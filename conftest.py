@@ -12,5 +12,10 @@ def user():
         "password": fake.password(),
         "name": fake.name()
     }
-    requests.post(CREATE_USER_URL, data=payload)
-    return payload
+    response = requests.post(CREATE_USER_URL, data=payload)
+    body = response.json()
+    return {
+        **payload,
+        "accessToken": body["accessToken"],
+        "refreshToken": body["refreshToken"],
+    }
