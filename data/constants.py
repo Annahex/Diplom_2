@@ -1,0 +1,5 @@
+MESSAGE_USER_UNAUTHORIZED = "You should be authorised"
+MESSAGE_NO_INGREDIENTS = "Ingredient ids must be provided"
+MESSAGE_USER_ALREADY_EXISTS = "User already exists"
+MESSAGE_REQUIRED_FIELDS = "Email, password and name are required fields"
+MESSAGE_INCORRECT_CREDENTIALS = "email or password are incorrect"

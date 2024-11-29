@@ -1,9 +1,7 @@
 import requests
 import allure
 from urls.urls import LOGIN_URL
-
-
-MESSAGE_INCORRECT_CREDENTIALS = "email or password are incorrect"
+from data.constants import MESSAGE_INCORRECT_CREDENTIALS
 
 
 class TestUserLogin:

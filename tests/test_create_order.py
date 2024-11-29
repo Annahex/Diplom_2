@@ -2,9 +2,7 @@ import requests
 import allure
 from urls.urls import CREATE_ORDER_URL
 import pytest
-
-
-MESSAGE_NO_INGREDIENTS = "Ingredient ids must be provided"
+from data.constants import MESSAGE_NO_INGREDIENTS
 
 
 class TestCreateOrder:

@@ -1,9 +1,7 @@
 import requests
 import allure
 from urls.urls import USER_ORDER_URL, CREATE_ORDER_URL
-
-
-MESSAGE_USER_UNAUTHORIZED = "You should be authorised"
+from data.constants import MESSAGE_USER_UNAUTHORIZED
 
 
 class TestGetUserOrders:

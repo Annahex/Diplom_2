@@ -3,28 +3,11 @@ import allure
 from faker import Faker
 from urls.urls import CREATE_USER_URL
 import pytest
-
-
-MESSAGE_USER_ALREADY_EXISTS = "User already exists"
-MESSAGE_REQUIRED_FIELDS = "Email, password and name are required fields"
+from data.constants import MESSAGE_USER_ALREADY_EXISTS, MESSAGE_REQUIRED_FIELDS
+from data.mock import DATA_FOR_USER_CREATE
 
 
 class TestCreateUser:
-
-    payload = [
-        {
-            "email": "test@email.com",
-            "password": "password"
-        },
-        {
-            "email": "test@email.com",
-            "name": "John Doe"
-        },
-        {
-            "password": "password",
-            "name": "John Doe"
-        }
-    ]
 
     @allure.title('Проверка создания уникального пользователя')
     def test_can_create_new_user(self):
@@ -59,7 +42,7 @@ class TestCreateUser:
         assert body["message"] == MESSAGE_USER_ALREADY_EXISTS
 
     @allure.title('Проверка наличия ошибки создания пользователя, у которого не указаны все обязательные поля')
-    @pytest.mark.parametrize('payload', payload)
+    @pytest.mark.parametrize('payload', DATA_FOR_USER_CREATE)
     def test_cant_create_user_without_any_field(self, payload):
         response = requests.post(CREATE_USER_URL, data=payload)
         body = response.json()
